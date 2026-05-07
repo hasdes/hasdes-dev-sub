@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>HASDES</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"
+integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous"/>
+</head>
+<body>
+  <div class="content">
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo_w.png" alt="HASDES">
+      </a>
+      <i id="sidebar-toggle-btn" class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link nav-icon" href="send/index.html">
+            <i class="fa-regular fa-envelope"></i>
+            <span class="badge badge-number number">1</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="user/index.html">
+            <span class="d-none d-md-block dropdown-toggle ps-2">山田花子</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <div class="nav-item sp_name">
+      <a class="nav-link" href="user/index.html">
+        <span>山田花子</span>
+      </a>
+    </div>
+    <div class="sidebar-nav" id="sidebar-nav">
+      <div class="main">
+        <a href="index.html">
+          <i class="fa-solid fa-house r_icon"></i>
+          <span>ホーム</span>
+        </a>
+      </div>
+      <div class="main">
+        <a href="send/index.html">
+          <i class="fa-solid fa-paper-plane r_icon"></i>
+          <span>メッセージ送受信</span>
+        </a>
+      </div>
+      <details id="menu-info">
+          <summary>
+            <i class="fa-solid fa-file-lines r_icon"></i>
+            <span>情報表示</span>
+            <i class="bi bi-chevron-down ms-auto toggle-icon"></i>
+          </summary>
+          <div class="sub_menu">
+            <a href="info/index.html">在庫表示</a>
+            <a href="info/stock.html">商品表示</a>
+         </div>
+      </details>
+      <details id="contents-info">
+        <summary>
+          <i class="fa-solid fa-folder r_icon"></i>
+          <span>コンテンツ管理</span>
+          <i class="bi bi-chevron-down ms-auto toggle-icon"></i>
+        </summary>
+        <div class="sub_menu">
+          <a href="contents/index.html">新規登録</a>
+          <a href="contents/edit.html">編集</a>
+        </div>
+      </details>
+      <details id="menu-system">
+        <summary>
+          <i class="fa-brands fa-windows r_icon"></i>
+          <span>システム管理</span>
+          <i class="bi bi-chevron-down ms-auto toggle-icon"></i>
+        </summary>
+        <div class="sub_menu">
+          <a href="system/log.html">ログ管理</a>
+          <a href="system/staff.html">従業員マスタメンテ</a>
+          <a href="system/message.html">メッセージ管理</a>
+        </div>
+      </details>
+        <div class="main">
+          <a href="user/index.html">
+            <i class="fa-solid fa-user r_icon"></i>
+            <span>ユーザー設定</span>
+          </a>
+        </div>
+        <div class="main">
+          <a href="login/index.html">
+            <i class="fa-solid fa-right-from-bracket r_icon"></i>
+            <span>ログアウト</span>
+          </a>
+        </div>
+    </div>
+  </aside>
+  <main id="main" class="main">
+    <section class="section dashboard">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+              <div class="contents_head">
+                <h5 class="card-title">プライバシーポリシー</h5>
+              </div>
+                <div class="space use pri">
+                <p>お客様個人に関する情報（以下「個人情報」といいます。）を適切に保護することを社会的責務と考え、下記の方針に基づき、その保護を徹底してまいります。</p>
+                <ol>
+                  <li>お客様の個人情報を取得させていただく場合は、利用目的をできる限り特定するとともに、適法かつ公正な手段で必要な範囲の個人情報を取得させていただきます。</li>
+                  <li>お客様からお預かりした個人情報の利用目的は以下のとおりです。</li>
+                </ol>
+                    <ul>
+                      <li>お見積りに関する内容の確認</li>
+                      <li>お見積りに必要な情報を収集するためのご連絡</li>
+                      <li>お問い合わせへの返事、ご連絡等</li>
+                    </ul>
+                <ol class="two">
+                  <li>お客様より取得させていただいた個人情報は適切に管理し、法律に基づき必要と判断される場合を除き、お客様の同意を得た第三者以外への提供、開示等一切いたしません。</li>
+                  <li>お客様よりお預かりした個人情報の安全管理は合理的、組織的、物理的、技術的施策を講じるとともに、関連法令に準じた適切な取り扱いを行うことで個人情報への不正な侵入、紛失、改ざん、漏えい等の危険防止に努めます。</li>
+                  <li>個人情報について、開示・訂正・利用停止・削除などの要求がある場合には、本人からの要求であることが確認できた場合に限り、法令に従って対応します。</li>
+                </ol>
+              </div>         
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <ul>
+      <li><a href="use.html">利用規約</a></li>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+    </ul>
+    <div class="copyright"><a href="index.html"> &copy; 2024 HASDES</a></div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<script setup>
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router'; // Vue Routerのインポート
+import Filter from '@/Pages/ConverProduct/Filter.vue';//検索
+
+defineProps({
+  authItems: Array
+})
+
+const router = useRouter(); // ルーターインスタンスの取得
+// const loadingActive = ref(false); // ローディング状態を管理する変数
+
+const items = ref([]);
+const itemsTotal = ref(0);
+
+//ページング
+const page = ref(1);
+const pageSize = ref(17); // 1ページあたりの表示件数
+
+// ソートに関する状態
+const sortColumn = ref('商品CD'); // 初期表示時のデフォルトソートカラム
+const sortOrder = ref('asc'); // 初期表示時のデフォルトソート順
+
+// 現在の検索条件を保持するオブジェクト
+const currentFilters = ref({});
+
+const savedFilters = sessionStorage.getItem('converproductFilters');
+if (savedFilters) {
+  currentFilters.value = JSON.parse(savedFilters);
+}
+
+// ソート切り替え関数
+const sort = (column) => {
+  if (sortColumn.value === column) {
+    // 同じカラムが再度クリックされたらソート順を切り替え
+    sortOrder.value = sortOrder.value === 'asc' ? 'desc' : 'asc';
+  } else {
+    // 新しいカラムがクリックされたらそのカラムで昇順ソート
+    sortColumn.value = column;
+    sortOrder.value = 'asc';
+  }
+  reLoadItems();
+};
+
+// データを再読み込みする関数
+const reLoadItems = () => {
+  // loadingActive.value = true; // ローディング状態を有効に
+
+  const params = {
+    ...currentFilters.value, // 現在の検索条件を展開
+    page: page.value,
+    pageSize: pageSize.value, // ページサイズをパラメータに追加
+    sortColumn: sortColumn.value, // ソート対象カラム
+    sortOrder: sortOrder.value, // ソート順
+  };
+  axios
+    .get('/api/converproduct/productlist', { params })
+    .then((res) => {
+      items.value = res.data.data;
+      itemsTotal.value = res.data.total;
+    })
+    .catch((error) => {
+      console.error('データ取得中にエラーが発生しました:', error);
+    })
+    .finally(() => {
+      // loadingActive.value = false; // ローディング状態を解除
+    });
+};
+
+// 子コンポーネントから検索条件を受け取る関数
+const handleSearch = (params) => {
+  currentFilters.value = params;
+  sessionStorage.setItem('converproductFilters', JSON.stringify(params));
+  page.value = 1; // ページをリセット
+  reLoadItems();
+};
+
+// 詳細ページへ遷移する関数を追加
+const goToDetail = (productCode) => {
+  router.push({ path: '/converproduct/detail', query: { key: productCode } });
+};
+
+// ページ変更時の処理
+const setPage = (val) => {
+  page.value = val;
+  reLoadItems();
+};
+
+// 初回読み込み
+onMounted(() => {
+  reLoadItems(); // 初期表示時にデフォルトソートでデータを読み込み
+});
+</script>
+
+
+<template>
+<section class="section dashboard">
+  <ol class="breadcrumb">
+    <!-- <li><router-link to="/home">ホーム</router-link></li> -->
+    <li v-if="authItems?.[0]?.ホーム == 0">
+      <router-link to="/home">ホーム</router-link>
+    </li>
+    <li>販売管理</li>
+    <li><router-link to="/conver">OCR変換マスタ</router-link></li>
+    <li>商品編集</li>
+  </ol>
+
+  <!-- ローディング画面 -->
+  <!-- <div v-if="loadingActive" class="loading-wrap">
+    <span>読み込み中...</span>
+  </div> -->
+  
+  <!-- 検索条件 -->
+  <Filter @search="handleSearch"></Filter>
+
+  <!-- 得意先一覧 -->
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="contents_head">
+            <h5 class="card-title">商品一覧</h5>
+          </div>
+          <div class="scroll-box s scroll-box_y d">
+            <table class="table_w tablesorter alter" id="table_sort"> 
+              <thead>
+                <tr class="head">
+                  <th class="narrow_a" @click="sort('商品CD')">
+                    商品CD
+                    <span v-if="sortColumn === '商品CD' && sortOrder === 'asc'">▲</span>
+                    <span v-if="sortColumn === '商品CD' && sortOrder === 'desc'">▼</span>
+                  </th>
+                  <th class="narrow_d">
+                    商品名
+                  </th>
+                  <th class="sm"></th>
+                </tr>
+              </thead>
+              <!-- <tbody v-show="!loadingActive"> -->
+              <tbody>
+                <tr v-for="(item, index) in items" :key="index">
+                  <th class="item_f white-space">{{ item.商品CD }}</th>
+                  <td class="white-space">{{ item.商品名_社内用 }}</td>
+                  <td class="sp_btn">
+                    <button @click.prevent="goToDetail(item.M商品_ID)" type="button" class="bo_btn">編集</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
+
+  <div class="table_fot">
+      <span v-if="itemsTotal === 0">
+        全 0 件
+      </span>
+      <span v-else>
+        全 {{ itemsTotal }} 件中
+        {{ (page - 1) * pageSize + 1 }} 件 〜
+        {{ Math.min(page * pageSize, itemsTotal) }} 件を表示
+      </span>
+
+    <el-pagination
+      layout="prev, pager, next"
+      :total="itemsTotal"
+      :page-size="pageSize"
+      :current-page.sync="page"
+      @current-change="setPage"
+    ></el-pagination>
+  </div>
+</section>
+</template>
+
+<style>
+.loading-wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 15vw;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+  font-size: 1.5em;
+  transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 500px) { /* スマホサイズの条件 */
+  .red-line-mobile {
+    border-bottom: 3px solid rgb(0, 0, 0) !important;
+  }
+}
+</style>
