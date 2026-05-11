@@ -15,20 +15,20 @@ let table = null
 
 // DB保存
 const save = async () => {
-  // const data = table[0].getData().filter(r => r[0]) //空行除外
+  const data = table[0].getData().filter(r => r[0]) //空行除外
 
-  // const res = await axios.post("/api/excel/insert", {
-  //   rows: data
-  // })
-  // // エラーセル色付け
-  // if(res.data.errors){
-  //   res.data.errors.forEach(err=>{
-  //     table[0].setStyle(err.cell,"background-color","#ffcccc")
-  //   })
-  // }else{
+  const res = await axios.post("/api/excel/insert", {
+    rows: data
+  })
+  // エラーセル色付け
+  if(res.data.errors){
+    res.data.errors.forEach(err=>{
+      table[0].setStyle(err.cell,"background-color","#ffcccc")
+    })
+  }else{
     alert("保存しました")
     table[0].setData([]) //保存後クリア
-  // }
+  }
 }
 
 onMounted(() => {
@@ -48,6 +48,10 @@ onMounted(() => {
     worksheets: [{
         // minDimensions: [37, 1],
         minDimensions: [17, 1],
+        allowInsertColumn: false,
+        onbeforepaste: (worksheet, data) => {
+          return data.map(row => row.slice(0, 17))
+        },
         // freezeColumns: 5,   // 左5列固定
         freezeColumns: 5,   // 左5列固定
         freezeRows: 1,      // 1行目固定

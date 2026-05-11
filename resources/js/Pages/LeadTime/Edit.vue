@@ -15,6 +15,13 @@ const goToList = () => {
 // const goToUpdate = () => {
 //   router.push({ path: '/leadtime/update'})
 // }
+
+const factoryCd = ref('')
+const factoryList = [
+  { cd: '1', name: '本社' },
+  { cd: '2', name: '九工' },
+  { cd: '3', name: '東工' },
+]
 </script>
 
 
@@ -49,34 +56,56 @@ const goToList = () => {
         </div>
 
         <div class="row space align-center justify-content-between page group contents space_d">
-          <div class="col-lg-12">
+          <!-- <div class="col-lg-12">
             <label class="col-form-label">工場CD</label>    
             <input type="text" class="form-control normal">                  
-          </div>
+          </div> -->
           <div class="col-lg-12">
+            <label class="col-form-label">工場CD</label>
+
+            <input
+              v-model="factoryCd"
+              list="factory-list"
+              class="form-control normal search-input"
+              placeholder="工場CDを入力または選択"
+            >
+
+            <datalist id="factory-list">
+              <option
+                v-for="item in factoryList"
+                :key="item.cd"
+                :value="item.cd"
+              >
+                {{ item.name }}
+              </option>
+            </datalist>
+          </div>
+          <div class="col-lg-12 test">
             <label class="col-form-label">商品CD</label>    
-            <input type="text" class="form-control normal">                  
+            <input type="text" class="form-control normal search-input">                  
           </div>
           <div class="col-lg-12">
             <label class="col-form-label">呼び径1</label>    
-            <input type="text" class="form-control normal">                  
+            <input type="text" class="form-control normal search-input">                  
           </div>
           <div class="col-lg-12">
             <label class="col-form-label">呼び径2</label>    
-            <input type="text" class="form-control normal">                  
+            <input type="text" class="form-control normal search-input">                  
           </div>
           <div class="col-lg-12">
             <label class="col-form-label">呼び径3</label>    
-            <input type="text" class="form-control normal">                  
+            <input type="text" class="form-control normal search-input">                  
           </div>
           <div class="col-sp-12 btn_center ma_top_a line_up flex-end">
               <button type="submit" class="button_r none search od_a to max">表示</button>    
-          </div>     
+          </div>    
+          
           </div>                
         </div>              
     </div>
 
-    <div class="col-lg-12">
+    <!-- <div class="col-lg-12"> -->
+    <div class="col-lg-6">
       <div class="card">
           <div class="row space align-center justify-content-between page group contents space_d">
             <div class="col-lg-6">
@@ -262,5 +291,13 @@ const goToList = () => {
     .btn_center {
         flex-direction: unset;
     }
+}
+
+
+@media (min-width: 1000px) {
+  .search-input {
+    width: 200px !important;
+    flex: unset !important;
+  }
 }
 </style>

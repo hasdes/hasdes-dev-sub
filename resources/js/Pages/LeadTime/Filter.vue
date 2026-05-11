@@ -47,9 +47,9 @@ const goToUpdate = () => {
               </div>
               <div class="col-lg-1 cate form_r">
                 <select class="form-select normal">
-                  <option style="color:#050B15;" value="">本社</option>
-                  <option style="color:#050B15;" value="1">九工</option>
-                  <option style="color:#050B15;" value="2">東工</option>
+                  <option style="color:#050B15;" value="">1:本社</option>
+                  <option style="color:#050B15;" value="1">2:九工</option>
+                  <option style="color:#050B15;" value="2">3:東工</option>
                 </select>                 
               </div>
               <div class="col-lg-1 sto">
@@ -65,105 +65,161 @@ const goToUpdate = () => {
         </form> 
         
         <div class="search_send le">
-          <table class="table_w tablesorter alter leadtime" id="leadtime">
+          <!-- <table class="table_w tablesorter alter leadtime" id="leadtime"> -->
+          <table class="table_w tablesorter leadtime" id="leadtime">
             <thead>
               <tr class="head">
-                <th class="narrow_j">商品CD</th>
-                <th class="narrow_j">呼び径1</th>
+                <th class="narrow_b">商品CD</th>
+                <!-- <th class="narrow_j">呼び径1</th>
                 <th class="narrow_j">呼び径2</th>
                 <th class="narrow_j">呼び径3</th>
-                <th class="narrow_j">必要数量</th>
-                <th class="narrow_j"></th>
+                <th class="narrow_j">必要数量</th> -->
+                <th class="input_yobi">呼び径1</th>
+                <th class="input_yobi">呼び径2</th>
+                <th class="input_yobi">呼び径3</th>
+                <th class="input_yobi">必要数量</th>
+                <!-- <th class="narrow_m" style=""></th> -->
+                <th class="input_num" style=""></th>
               </tr>
             </thead> 
             <tbody>
               <tr class="space align-center page group contents space_d">
                 <td data-label="商品CD">
-                  <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">   
+                  </div>
                 </td>
-                <td data-label="呼び径1">                
-                  <input type="text" class="form-control normal input_item yobi" value="100">                  
+                <td data-label="呼び径1">  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="100"><span>×</span>                  
+                  </div>              
                 </td>
                 <td data-label="呼び径2">
-                  <input type="text" class="form-control normal input_item yobi" value="75">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="75"> <span>×</span>                 
+                  </div>   
                 </td>
                 <td data-label="呼び径3">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value=""> <span></span>                 
+                  </div>   
                 </td>
                 <td data-label="必要数量">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="1000">   
+                  </div>              
                 </td>
                 <td></td>
               </tr>
               <tr class="space align-center page group contents space_d">
                 <td data-label="商品CD">
-                  <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">   
+                  </div>
                 </td>
-                <td data-label="呼び径1">                
-                  <input type="text" class="form-control normal input_item yobi" value="100">                  
+                <td data-label="呼び径1">  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="100"><span>×</span>                  
+                  </div>              
                 </td>
                 <td data-label="呼び径2">
-                  <input type="text" class="form-control normal input_item yobi" value="75">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="75"> <span>×</span>                 
+                  </div>   
                 </td>
                 <td data-label="呼び径3">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value=""> <span></span>                 
+                  </div>   
                 </td>
                 <td data-label="必要数量">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="1000">   
+                  </div>              
                 </td>
                 <td></td>
               </tr>
               <tr class="space align-center page group contents space_d">
                 <td data-label="商品CD">
-                  <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">   
+                  </div>
                 </td>
-                <td data-label="呼び径1">                
-                  <input type="text" class="form-control normal input_item yobi" value="100">                  
+                <td data-label="呼び径1">  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="100"><span>×</span>                  
+                  </div>              
                 </td>
                 <td data-label="呼び径2">
-                  <input type="text" class="form-control normal input_item yobi" value="75">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="75"> <span>×</span>                 
+                  </div>   
                 </td>
                 <td data-label="呼び径3">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value=""> <span></span>                 
+                  </div>   
                 </td>
                 <td data-label="必要数量">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="1000">   
+                  </div>              
                 </td>
                 <td></td>
               </tr>
               <tr class="space align-center page group contents space_d">
                 <td data-label="商品CD">
-                  <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">   
+                  </div>
                 </td>
-                <td data-label="呼び径1">                
-                  <input type="text" class="form-control normal input_item yobi" value="100">                  
+                <td data-label="呼び径1">  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="100"><span>×</span>                  
+                  </div>              
                 </td>
                 <td data-label="呼び径2">
-                  <input type="text" class="form-control normal input_item yobi" value="75">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="75"> <span>×</span>                 
+                  </div>   
                 </td>
                 <td data-label="呼び径3">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value=""> <span></span>                 
+                  </div>   
                 </td>
                 <td data-label="必要数量">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="1000">   
+                  </div>              
                 </td>
                 <td></td>
               </tr>
               <tr class="space align-center page group contents space_d">
                 <td data-label="商品CD">
-                  <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item item_cd" value="GGTE 000">   
+                  </div>
                 </td>
-                <td data-label="呼び径1">                
-                  <input type="text" class="form-control normal input_item yobi" value="100">                  
+                <td data-label="呼び径1">  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="100"><span>×</span>                  
+                  </div>              
                 </td>
                 <td data-label="呼び径2">
-                  <input type="text" class="form-control normal input_item yobi" value="75">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="75"> <span>×</span>                 
+                  </div>   
                 </td>
                 <td data-label="呼び径3">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value=""> <span></span>                 
+                  </div>   
                 </td>
                 <td data-label="必要数量">
-                  <input type="text" class="form-control normal input_item yobi" value="">                  
+                  <div class="yobi_wrap">
+                    <input type="text" class="form-control normal input_item yobi" value="1000">   
+                  </div>              
                 </td>
                 <td></td>
               </tr>
@@ -190,7 +246,8 @@ const goToUpdate = () => {
   /* テーブル全体 */
   .leadtime {
     border-collapse: collapse;
-    width: 100%;
+    /* width: 100%; */
+    /* width: 40%; */
     border: 1px solid #C9D4E6;
   }
   /* ヘッダー行 */
@@ -211,16 +268,16 @@ const goToUpdate = () => {
     padding: 0 12px;
   }
   .form-control.item_cd {
-    width:8.5rem; 
+    /* width:8.5rem;  */
     margin: 3px 0;
   }
   .form-control.yobi {
-    width:3.5rem; 
+    /* width:3.5rem;  */
     margin: 3px 0;
   }
   .leadtime tbody tr {
     border-bottom: 1px solid #C9D4E6; 
-    background:#fff;
+    /* background:#fff; */
   }
   .search_send.le {
     border-bottom: unset;
@@ -252,11 +309,54 @@ const goToUpdate = () => {
     }
     .l_btn {
       flex: 0 1 30%;  /* 3つ並び */
-      max-width: 15%;
+      max-width: 20%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
   }
+@media (min-width:1024px) {
+  .l_btn {
+    max-width: 15%;
+  }
+}
+
+  .yobi_wrap {
+    display: flex;
+    align-items: center;
+    /* gap: 6px; */
+    gap: 16px;
+  }
+
+  .input_num {
+    width: 350px;
+  }
+  .input_yobi {
+    width: 100px;
+  }
+  /* .input_cd {
+    width: 120px;
+  } */
+  @media (max-width: 1200px) {
+    .input_num {
+      width: 50px;
+    }
+    .input_yobi {
+      width: 50px;
+    }
+    /* .input_cd {
+      width: 60px;
+    } */
+
+  }
+
+  @media (max-width: 768px) {
+    .yobi_wrap span {
+      display: none;
+    }
+
+  }
+
+  
 </style>
 

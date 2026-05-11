@@ -42,7 +42,8 @@ const goToAdd = () => {
     </button>
   </div>
 
-  <div class="col-lg-6">
+  <!-- <div class="col-lg-5"> -->
+    <div class="col-12 col-lg-5 col-xxl-3">
     <div class="card">
       <div class="contents_head">
         <h5 class="card-title">工程日数一括変更</h5>
@@ -50,9 +51,11 @@ const goToAdd = () => {
       <table class="table_w tablesorter none sp_w detail_table process"> 
         <thead>
           <tr class="head">
-            <th class="narrow_d">工程名</th>
-            <th class="narrow_b">現在設定日数</th>
-            <th class="narrow_b">変更後日数</th>                      
+            <!-- <th class="narrow_d">工程名</th> -->
+            <th class="narrow_c">工程名</th>
+            <th class="narrow_j">現在設定日数</th>
+            <th class="narrow_j">変更後日数</th>                      
+            <!-- <th class="narrow_g">変更後日数</th>                       -->
           </tr>
         </thead>
         <tbody>
@@ -193,17 +196,24 @@ const goToAdd = () => {
   font-size: 1.5em;
   transform: translate(-50%, -50%);
 }
-/* .close-btn2 {
-  position: absolute;
-  top: -50px;
-  right:5px;
-} */
 .flex-end {
   justify-content: flex-end;
 }
 .flex-start {
   justify-content: flex-start;
 }
+/* テーブル */
+.process tbody tr {
+  border-bottom: 1px solid #C9D4E6;
+}
+.process tbody th {
+  font-weight: bold;
+}
+.process tbody td input {
+  margin: 3px 0;  
+  width:50%;
+}
+
 @media (max-width: 768px) {
   .item_f {
       display: flex;
@@ -216,16 +226,9 @@ const goToAdd = () => {
     flex-direction: unset;
   }
 }
-
-/* テーブル */
-.process tbody tr {
-  border-bottom: 1px solid #C9D4E6;
-}
-.process tbody th {
-  font-weight: bold;
-}
-.process tbody td input {
-  margin: 3px 0;  
-  width:50%;
+@media (min-width: 768px) {
+  .table_w td {
+      padding: 0 12px;
+  }
 }
 </style>

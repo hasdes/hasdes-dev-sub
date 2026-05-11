@@ -50,12 +50,16 @@ import Filter from '@/Pages/LeadTime/Filter.vue';
         <table class="table_w tablesorter alter res" id="table_sort_a">
           <thead>
             <tr class="head">
-              <th class="narrow_j">商品CD</th>
-              <th class="narrow_j">呼び径1</th>
-              <th class="narrow_j">呼び径2</th>
-              <th class="narrow_j">呼び径3</th>
-              <th class="narrow_j">必要数量</th>
-              <th class="narrow_j">目安納期</th>
+              <!-- <th class="narrow_j">商品CD</th> -->
+              <th class="narrow_c">商品CD</th>
+              <!-- <th class="narrow_j">呼び径</th> -->
+              <th class="narrow_c">呼び径</th>
+              <!-- <th class="narrow_j" style="width:50px;">呼び径1</th>
+              <th class="narrow_j" style="width:50px;">呼び径2</th>
+              <th class="narrow_j" style="width:50px;">呼び径3</th> -->
+              <!-- <th class="narrow_j">必要数量</th> -->
+              <th class="narrow_c">必要数量</th>
+              <th class="input_num">目安納期</th>
             </tr>
           </thead>
           <tbody v-if="!showResult">
@@ -66,93 +70,79 @@ import Filter from '@/Pages/LeadTime/Filter.vue';
           <tbody v-if="showResult">
             <tr class="space align-center page group contents space_d">
               <td data-label="商品CD">
-                <input class="form-control normal item_cd" value="GGTE 000" disabled>                  
+                GGTE 000       
               </td>
-              <td data-label="呼び径1">                
-                <input class="form-control normal yobi" value="100" disabled>                  
+              <td data-label="呼び径">    
+                <!-- 100×100×100 -->
+                100×75
               </td>
-              <td data-label="呼び径2">
-                <input class="form-control normal yobi" value="75" disabled>                  
-              </td>
-              <td data-label="呼び径3">
-                <input class="form-control normal yobi" value="" disabled>                  
-              </td>
+
               <td data-label="必要数量">
-                <input class="form-control normal yobi" value="" disabled>                  
+                100           
               </td>
-              <td></td>
+              <td data-label="目安納期" class="lead_bottom">
+                10               
+              </td>
             </tr>
             <tr class="space align-center page group contents space_d">
               <td data-label="商品CD">
-                <input class="form-control normal item_cd" value="GGTE 000" disabled>                  
+                GGTE 000       
               </td>
-              <td data-label="呼び径1">                
-                <input class="form-control normal yobi" value="100" disabled>                  
+              <td data-label="呼び径">    
+                100×75
               </td>
-              <td data-label="呼び径2">
-                <input class="form-control normal yobi" value="75" disabled>                  
-              </td>
-              <td data-label="呼び径3">
-                <input class="form-control normal yobi" value="" disabled>                  
-              </td>
+
               <td data-label="必要数量">
-                <input class="form-control normal yobi" value="" disabled>                  
+                1000            
               </td>
-              <td></td>
+              <td data-label="目安納期" class="lead_bottom">
+                10               
+              </td>
             </tr>
             <tr class="space align-center page group contents space_d">
               <td data-label="商品CD">
-                <input class="form-control normal item_cd" value="GGTE 000" disabled>                  
+                GGTE 000       
               </td>
-              <td data-label="呼び径1">                
-                <input class="form-control normal yobi" value="100" disabled>                  
+              <td data-label="呼び径">    
+                100×75
               </td>
-              <td data-label="呼び径2">
-                <input class="form-control normal yobi" value="75" disabled>                  
-              </td>
-              <td data-label="呼び径3">
-                <input class="form-control normal yobi" value="" disabled>                  
-              </td>
+
               <td data-label="必要数量">
-                <input class="form-control normal yobi" value="" disabled>                  
+                1000            
               </td>
-              <td></td>
+              <td data-label="目安納期" class="lead_bottom">
+                10               
+              </td>
             </tr>
             <tr class="space align-center page group contents space_d">
               <td data-label="商品CD">
-                <input class="form-control normal item_cd" value="GGTE 000" disabled>                  
+                GGTE 000       
               </td>
-              <td data-label="呼び径1">                
-                <input class="form-control normal yobi" value="100" disabled>                  
+              <td data-label="呼び径">    
+                100×75
               </td>
-              <td data-label="呼び径2">
-                <input class="form-control normal yobi" value="75" disabled>                  
-              </td>
-              <td data-label="呼び径3">
-                <input class="form-control normal yobi" value="" disabled>                  
-              </td>
+
               <td data-label="必要数量">
-                <input class="form-control normal yobi" value="" disabled>                  
+                1000            
               </td>
-              <td></td>
+              <td data-label="目安納期" class="lead_bottom">
+                10               
+              </td>
             </tr>
             <tr class="space align-center page group contents space_d">
               <td data-label="商品CD">
-                <input class="form-control normal item_cd" value="GGTE 000" disabled>                  
+                GGTE 000       
               </td>
-              <td data-label="呼び径1">                
-                <input class="form-control normal yobi" value="100" disabled>                  
+              <td data-label="呼び径">    
+                100×75
               </td>
-              <td data-label="呼び径2">
-                <input class="form-control normal yobi" value="75" disabled>                  
-              </td>
-              <td data-label="呼び径3">
-                <input class="form-control normal yobi" value="" disabled>                  
-              </td>
+
               <td data-label="必要数量">
-                <input class="form-control normal yobi" value="" disabled>                  
+                1000            
               </td>
-              <td></td>
+              <td data-label="目安納期" class="lead_bottom">
+                10               
+              </td>
             </tr>
 
           </tbody>
@@ -198,13 +188,14 @@ import Filter from '@/Pages/LeadTime/Filter.vue';
   background-color: unset;
 }
 .form-control.item_cd {
-  width:8.5rem; 
+  /* width:8.5rem;  */
   margin: 3px 0;
 }
 .form-control.yobi {
-  width:3.5rem; 
+  /* width:3.5rem;  */
   margin: 3px 0;
 }
+
 /* 結果クリアボタン */
 @media (min-width: 768px) {
   .l_space {
@@ -213,16 +204,62 @@ import Filter from '@/Pages/LeadTime/Filter.vue';
   }
   .l_btn {
     flex: 0 1 30%;  /* 3つ並び */
-    max-width: 15%;
+    /* max-width: 15%; */
+    max-width: 20%;
+    /* min-width: 15%; */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 }
+@media (min-width:1024px) {
+  .l_btn {
+    max-width: 15%;
+  }
+}
+
+
+
+
+
 @media (max-width: 767px) {
   .l_btn {
     width: auto; 
   }
 }
+
+
+
+/* .yobi_wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+} */
+
+.yobi_wrap {
+  display: flex;
+  align-items: center;
+}
+/* .yobi_wrap .yobi {
+  margin: 0;
+}
+.yobi_wrap span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 6px;
+  line-height: 33px;
+  height: 33px;
+    position: relative;
+  top: -1px;
+} */
+
+
+  @media (max-width: 500px) {
+    .lead_bottom {
+      border-bottom:1px solid #C9D4E6;
+    }
+  }
+
 </style>
 
